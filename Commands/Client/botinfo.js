@@ -33,7 +33,7 @@ module.exports = {
                 const embed = new EmbedBuilder()
                     .setTitle('Bot Info & Stats')
                     .setColor('Aqua')
-                    .setAuthor({ name: 'Check on github', iconURL: 'https://pngimg.com/uploads/github/github_PNG67.png', url: 'https://github.com/rootblind/justice-bot'})
+                    .setAuthor({ name: 'Check on github', iconURL: 'https://pngimg.com/uploads/github/github_PNG67.png', url: 'https://github.com/rootblind/dataminer-bot'})
                     .addFields(
                         { name: "Dev", value: "rootblind", inline: true },
                         { name: "Username:", value: `${client.user.username}`, inline: true },
