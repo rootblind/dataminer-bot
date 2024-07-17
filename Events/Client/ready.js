@@ -3,6 +3,7 @@
 
 const { Client, ActivityType} = require("discord.js");
 const { config } = require('dotenv');
+const fs = require('fs');
 const botUtils = require('../../utility_modules/utility_methods.js');
 config();
 
@@ -20,14 +21,16 @@ module.exports = {
             status: "online",
         });
 
+        // checking if the required files exist
+        if((await botUtils.isFileOk('./MessageLogging/data.csv')) == false) {
+            await fs.promises.writeFile('./MessageLogging/data.csv', 'Message\n', 'utf8');
+        }
+
         console.log(
                 `${
                     client.user.username
                 } is functional! - ${botUtils.formatDate(new Date())} | [${botUtils.formatTime(new Date())}]`
             );
-    
-
-
     }
 
 };
