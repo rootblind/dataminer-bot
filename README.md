@@ -43,6 +43,17 @@ Run:
 ```bash
 node ./source/main.js
 ```
+## Create an object folder
+Ignore list is stored inside the `/dataminer-bot/objects/ignorelist.json`
+
+Create the folder, the file will be automatically created if it doesn't exist.
+
+The format:
+```json
+{
+   "channel": ["channel_id"]
+}
+```
 
 ## Environment Variables
 ```
