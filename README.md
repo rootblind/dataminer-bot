@@ -6,6 +6,7 @@ Logs and scrapes channels for message content and stores everything on a CSV fil
 I made this bot as a tool to make an unlabeled dataset for myself.
 
 I put a whole day into this mini tool so I would like to keep it for whoever needs it.
+[The main project](https://github.com/rootblind/justice-bot)
 # Features
 
 ## Message Scraping
@@ -119,6 +120,9 @@ DiscordAPIError[10062]: Unknown interaction
 If you wait like 10-20s before using the command again, seems to make this error less often. For me it didn't create enough inconvenience to figure it out, but I will mention it just so anyone that uses it knows.
 
 Might be only Discord API related.
+
+## Other tools
+In `python_tools` directory I wrote some scripts strictly on my use case to help me combine my user data requested from discord as a csv file and append that file to the main `data.csv` file.
 
 ## Documentation
 All the code is commented.
