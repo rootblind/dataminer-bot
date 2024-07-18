@@ -5,6 +5,15 @@
 import os
 import csv
 import json
+import re
+
+def filter(input):
+    pattern = re.compile(r'<[^>]*>')
+    filtered_input = pattern.sub('', input)
+
+    if(filtered_input.endswith(',')):
+        filtered_input = filtered_input[:-1]
+    return filtered_input
 
 # a directory path is given and all "messages.json" are appended to a list that is returned
 def find_json(directory):
@@ -28,9 +37,8 @@ def read_json(file_path):
 def write_csv(data, path):
     with open(path, 'a', encoding='utf-8') as csvFile:
         writer = csv.DictWriter(csvFile, fieldnames=["Message"]) # "Message" is the header that i used for my csv files
-        writer.writeheader()
         for message in data: # each directory has an array of all the messages from its json file, so each message from the array must be iterated
-            writer.writerow({'Message': message})
+            writer.writerow({'Message': filter(message)})
         
 
 
@@ -41,6 +49,10 @@ def main():
     # making a list of all directories located in the same directory as the source file
     subdirectories = [os.path.join(script_directory, d) for d in os.listdir(script_directory) if os.path.isdir(os.path.join(script_directory, d))]
     
+    # init file
+    with open(output_csv_file, 'w', encoding='utf-8') as initFile:
+        writer = csv.DictWriter(initFile, fieldnames=["Message"])
+        writer.writeheader()
     # what this code does is basically: for each directory of the directory array, read all the json files called "messages.json" and for each one, read
     # their content and write to the csv file
     # it will also print what directories were scanned
