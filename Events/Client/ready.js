@@ -26,6 +26,8 @@ module.exports = {
             await fs.promises.writeFile('./MessageLogging/data.csv', 'Message\n', 'utf8');
         }
 
+        botUtils.isDirOk('scrapped_images');
+
         console.log(
                 `${
                     client.user.username
